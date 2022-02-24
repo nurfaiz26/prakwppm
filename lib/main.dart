@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,20 +13,104 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+      title: 'Contacts',
+      theme: ThemeData(),
+      home: const DetailScreen(),
+    );
+  }
+}
+
+class DetailScreen extends StatelessWidget {
+  const DetailScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget> [
+            Image.asset('assets/images/submarine.jpg'),
+            Container(
+                margin: EdgeInsets.only(top: 16.0),
+                child: const Text(
+                    "Surabaya Submarine Monument",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                )
+            ), //tittle
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget> [
+                  Column(
+                    children: const <Widget> [
+                      Icon(Icons.calendar_today),
+                      Text('Open Everyday'),
+                    ],
+                  ),
+                  Column(
+                    children: const <Widget> [
+                      Icon(Icons.schedule),
+                      Text('08.00 - 16.00'),
+                    ],
+                  ),
+                  Column(
+                    children: const <Widget> [
+                      Icon(Icons.attach_money),
+                      Text('Rp 10.000,-'),
+                    ],
+                  ),
+                ],
+              ),
+            ), //new
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              child: const Text(
+                'blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16.0),
+              ),
+            ), //description
+            Container(
+              height: 150,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget> [
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Image.network(
+                        'https://informazone.com/wp-content/uploads/2020/01/header.jpg'
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Image.asset(
+                        'assets/images/monkasel_1.jpg'
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Image.asset(
+                        'assets/images/monkasel_2.jpg'
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Image.asset(
+                          'assets/images/monkasel_3.jpg'
+                      ),
+                  ),
+                ],
+              ),
+            ), //images
+          ],
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -48,7 +134,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+
+
+  int _counter = 1;
+  int _prima = 0;
+  String _text = "Ganjil";
+
 
   void _incrementCounter() {
     setState(() {
@@ -58,6 +149,24 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+
+      if(_counter>20){
+        _counter = 0;
+      }
+
+      _text = "Prima: ";
+      for(int i=1; i<=_counter; i++){
+        for(int j=1; j<=i; j++){
+          if(i%j == 0){
+            _prima++;
+          }
+        }
+        if(_prima == 2){
+          _text += '${i}, ';
+        }
+        _prima = 0;
+      }
+
     });
   }
 
@@ -102,6 +211,12 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+
+            Text(
+              '$_text',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+
           ],
         ),
       ),
