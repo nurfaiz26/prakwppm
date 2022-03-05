@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:prakwppm/main_screen.dart';
+import 'package:prakwppm/detail_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,102 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Contacts',
       theme: ThemeData(),
-      home: const DetailScreen(),
-    );
-  }
-}
-
-class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget> [
-            Image.asset('assets/images/submarine.jpg'),
-            Container(
-                margin: EdgeInsets.only(top: 16.0),
-                child: const Text(
-                    "Surabaya Submarine Monument",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                )
-            ), //tittle
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget> [
-                  Column(
-                    children: const <Widget> [
-                      Icon(Icons.calendar_today),
-                      Text('Open Everyday'),
-                    ],
-                  ),
-                  Column(
-                    children: const <Widget> [
-                      Icon(Icons.schedule),
-                      Text('08.00 - 16.00'),
-                    ],
-                  ),
-                  Column(
-                    children: const <Widget> [
-                      Icon(Icons.attach_money),
-                      Text('Rp 10.000,-'),
-                    ],
-                  ),
-                ],
-              ),
-            ), //new
-            Container(
-              padding: const EdgeInsets.all(16.0),
-              child: const Text(
-                'blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16.0),
-              ),
-            ), //description
-            Container(
-              height: 150,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget> [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Image.network(
-                        'https://informazone.com/wp-content/uploads/2020/01/header.jpg'
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Image.asset(
-                        'assets/images/monkasel_1.jpg'
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Image.asset(
-                        'assets/images/monkasel_2.jpg'
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Image.asset(
-                          'assets/images/monkasel_3.jpg'
-                      ),
-                  ),
-                ],
-              ),
-            ), //images
-          ],
-        ),
-      ),
+      home: const MainScreen(),
     );
   }
 }
