@@ -35,7 +35,7 @@ var tourismPlaceList = [
       hariBuka: 'Open Everyday',
       jamBuka: '08.00 - 16.00',
       hargaTiket: 'Rp 10.000,-',
-      deskripsi: 'Monumen kapal selam adalh sebuah kapal selam lama yang sudah tidak dipakai dan sekarang dimuseumkan',
+      deskripsi: 'Monumen kapal selam adalah sebuah kapal selam lama yang sudah tidak dipakai dan sekarang dimuseumkan',
       galeriFoto1: 'https://informazone.com/wp-content/uploads/2020/01/header.jpg',
       galeriFoto2: 'assets/images/monkasel_1.jpg',
       galeriFoto3: 'assets/images/monkasel_2.jpg',
