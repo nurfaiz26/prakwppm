@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prakwppm/main_screen.dart';
-import 'package:prakwppm/provider/done_tourism_provider.dart';
+import 'package:prakwppm/provider/providers.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => DoneTourismProvider(),
+        create: (context) => Providers(),
         child: MaterialApp(
           title: 'Contacts',
           theme: ThemeData(),

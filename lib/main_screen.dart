@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prakwppm/add_tourism_place.dart';
 import 'package:prakwppm/done_tourism_list.dart';
-import 'package:prakwppm/model/tourism_place.dart';
 import 'package:prakwppm/tourism_list.dart';
 
 class MainScreen extends StatefulWidget {
@@ -26,7 +26,18 @@ class _MainScreenState extends State<MainScreen>{
                   return const DoneTourismList();
               }),);
             },
-          )
+          ),
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return AddTourism();
+                }),
+              );
+            },
+          ),
         ],
       ),
       body: TourismList(),

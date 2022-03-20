@@ -1,4 +1,5 @@
 class TourismPlace {
+  String id;
   String name;
   String location;
   String imageAsset;
@@ -13,6 +14,7 @@ class TourismPlace {
 
   TourismPlace(
     {
+      required this.id,
       required this.name,
       required this.location,
       required this.imageAsset,

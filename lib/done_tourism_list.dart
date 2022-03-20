@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prakwppm/provider/done_tourism_provider.dart';
+import 'package:prakwppm/provider/providers.dart';
 import 'package:provider/provider.dart';
+
+import 'provider/providers.dart';
 
 class DoneTourismList extends StatelessWidget{
   const DoneTourismList({Key? key,}) : super(key: key);
@@ -8,7 +10,7 @@ class DoneTourismList extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     final doneTourismPlaceList =
-        Provider.of<DoneTourismProvider>(
+        Provider.of<Providers>(
           context,
           listen: false,
         ).doneTourismPlaceList;
